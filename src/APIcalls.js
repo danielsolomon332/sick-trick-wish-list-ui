@@ -1,5 +1,5 @@
-fetchDataGet = () => {
-  return fetch('http://localhost:3001/api/v1/tricks')
+const fetchDataGet = (path) => {
+  return fetch(`http://localhost:3001/api/v1/${path}`)
 }
 
-export { fetchDataGet }
+export default fetchDataGet
