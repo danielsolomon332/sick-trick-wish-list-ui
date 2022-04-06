@@ -8,12 +8,15 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      tricks: null
+      tricks: []
     }
   }
 
   componentDidMount() {
     fetchDataGet('tricks')
+      .then((res) => {
+        return res.json()
+      })
       .then((data) => {
         this.setState({
           tricks: data
@@ -25,7 +28,7 @@ class App extends Component {
       return (
         <main className="App">
           <h1>Sick Trick Wish List</h1>
-          <Card tricks={this.state.tricks} />
+          <Tricks tricks={this.state.tricks} />
         </main>
       )
     }
